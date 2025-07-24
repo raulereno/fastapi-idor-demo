@@ -13,7 +13,7 @@ SECRET_KEY = "your_very_secure_secret_key_here_change_in_production"
 
 def create_token(user_id: int) -> str:
     """Create JWT token for a user"""
-    payload = {"sub": user_id}
+    payload = {"sub": str(user_id)}
     return jwt.encode(payload, SECRET_KEY, algorithm="HS256")
 
 def print_separator(title: str):
